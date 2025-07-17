@@ -5,6 +5,8 @@ on:
     - '.github/workflows/build-auto.yml'
     - 'build.sh'
     - 'laf'
+    workflow_dispatch: # <--- 添加这一行
+
 jobs:
   build-auto:
     runs-on: ${{ matrix.os }}

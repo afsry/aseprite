@@ -34,6 +34,11 @@ jobs:
       shell: bash
       run: |
         bash build.sh --auto --norun
+    - name: Upload Build Artifacts # <--- 这是新添加的步骤
+      uses: actions/upload-artifact@v4
+      with:
+         name: ${{ runner.os }}-${{ matrix.build_type }}-aseprite-build # Artifact 的名称
+         path: build/bin/aseprite # 要上传的产物路径，请根据你的实际编译输出调整
     - name: Running CLI Tests
       shell: bash
       run: |
